@@ -9,3 +9,9 @@ requirements:  ## make requirements file
 
 install:  ## install requirements file
 	pip install -r requirements.txt
+
+test:  ## test
+	pytest
+
+test-cov:  ## run coverage with pytest
+	pytest --cov app
