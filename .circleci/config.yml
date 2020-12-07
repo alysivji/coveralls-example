@@ -12,9 +12,17 @@ jobs:
           command: pip install -r requirements.txt
           name: Test
       - run:
+          command: echo $COVERALLS_REPO_TOKEN
+      - run:
           command: make test-cov
+      - run:
+          command: pip install coveralls
+      - run:
+          command: coveralls
 
 workflows:
   main:
     jobs:
-      - build-and-test
+      - build-and-test:
+          context:
+          - org-global
